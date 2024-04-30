@@ -20,10 +20,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Build Docker image
-        run: docker build -t my-react-portfolio .
+        run: |
+          docker build -t my-react-portfolio .
       
       - name: Tag Docker image
-        run: docker tag my-react-portfolio ${{ secrets.DOCKER_USERNAME }}/port
+        run: |
+          docker tag my-react-portfolio ${{ secrets.DOCKER_USERNAME }}/portfolio
       
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/port
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/portfolio
