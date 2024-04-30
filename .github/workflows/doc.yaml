@@ -1,35 +1,32 @@
-name: Deploy Node Application
+name: Deploy Dockerized React App
 
 on:
   push:
     branches:
-      - docker
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Source
-        uses: actions/checkout@v4
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}     
-      - name: Build Docker Image
-        run: |
-          docker build \
-            -t 21csa56/port \
-            --build-arg REACT_APP_NODE_ENV='production' \
-            --build-arg REACT_APP_SERVER_BASE_URL='${{ secrets.REACT_APP_SERVER_BASE_URL }}' \
-            .
-      - name: Publish Image to Docker Hub
-        run: docker push 21csa56/port:latest 
- 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pull image from Docker Hub
-        run: docker pull 21csa56/port:latest 
-      - name: Delete old container
-        run: docker rm -f reactjs-app-container || true
-      - name: Run Docker Container
-        run: docker run -d -p 3000:80 --name reactjs-app-container 21csa56/port
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build Docker image
+        run: docker-compose build
+      
+      - name: Start Docker containers
+        run: docker-compose up -d
+
+      - name: Wait for startup
+        run: sleep 15s
+
+      - name: Check running containers
+        run: docker ps
+
+      - name: Run tests (if applicable)
+        # Add your testing commands here
+
+      - name: Clean up
+        run: docker-compose down
