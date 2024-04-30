@@ -1,17 +1,17 @@
-const logotext = "JOHN";
+const logotext = "Bharathi";
 const meta = {
-    title: "John Doe",
-    description: "I’m John Doe data scientist _ Full stack devloper,currently working in Berlin",
+    title: "Selva Bharathi",
+    description: "I’m Selva Bharathi data scientist _ Full stack devloper",
 };
 
 const introdata = {
-    title: "I’m John Doe",
+    title: "I’m Selva Bharathi",
     animated: {
         first: "I love coding",
         second: "I code cool websites",
         third: "I develop mobile apps",
     },
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
+    description: "i am student , consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
     your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
 };
 
@@ -38,11 +38,11 @@ const worktimeline = [{
 
 const skills = [{
         name: "Python",
-        value: 90,
+        value: 70,
     },
     {
-        name: "Djano",
-        value: 85,
+        name: "Java",
+        value: 90,
     },
     {
         name: "Javascript",
@@ -52,10 +52,7 @@ const skills = [{
         name: "React",
         value: 60,
     },
-    {
-        name: "Jquery",
-        value: 85,
-    },
+  
 ];
 
 const services = [{
