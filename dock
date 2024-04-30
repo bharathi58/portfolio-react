@@ -1,24 +1,35 @@
-FROM node:alpine3.18 as build
+# Use the official Node.js image as a base
+FROM node:latest AS builder
 
-# Declare build time environment variables
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Set build arguments
 ARG REACT_APP_NODE_ENV
 ARG REACT_APP_SERVER_BASE_URL
 
-# Set default values for environment variables
-ENV REACT_APP_NODE_ENV=$REACT_APP_NODE_ENV
-ENV REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL
+# Build the React app
+RUN REACT_APP_NODE_ENV=$REACT_APP_NODE_ENV \
+    REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL \
+    npm run build
 
-# Build App
-WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-RUN npm run build
+# Use nginx image as base for serving the React app
+FROM nginx:alpine
 
-# Serve with Nginx
-FROM nginx:1.23-alpine
-WORKDIR /usr/share/nginx/html
-RUN rm -rf *
-COPY --from=build /app/build .
+# Copy build files from previous stage
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+
+# Start nginx server
+CMD ["nginx", "-g", "daemon off;"]
