@@ -16,23 +16,26 @@ const introdata = {
 };
 
 const dataabout = {
-    title: "abit about my self",
-    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
+    title: "Career Objective",
+    aboutme: "Looking for a challenging career that provides me a stage to present my practical as well as theoretical knowledge and further help me in developing my research as well as experimental skills so that I can extend myself to higher work in my field of technical interests.",
 };
 const worktimeline = [{
-        jobtitle: "Designer of week",
-        where: "YAdfi",
-        date: "2020",
+        jobtitle: "KIT",
+        where: "BE CSE",
+        date: "7.01",
+       
     },
     {
-        jobtitle: "Designer of week",
-        where: "Jamalya",
-        date: "2019",
+        jobtitle: "SKP",
+        where: "HSC",
+        date: "68.77",
+        
     },
     {
-        jobtitle: "Designer of week",
-        where: "ALquds",
-        date: "2019",
+        jobtitle: "SKP",
+        where: "SSLC",
+        date: "59.8",
+        
     },
 ];
 
@@ -133,9 +136,9 @@ const dataportfolio = [{
 ];
 
 const contactConfig = {
-    YOUR_EMAIL: "name@domain.com",
-    YOUR_FONE: "(555)123-4567",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
+    YOUR_EMAIL: "bharathibharathia08@domain.com",
+    YOUR_FONE: "9025243890",
+    description: " Passionate and adaptable individual with a strong foundation in Docker image building, eager to contribute to dynamic teams and drive innovative solutions.",
     // creat an emailjs.com account 
     // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
     YOUR_SERVICE_ID: "service_id",
@@ -144,9 +147,9 @@ const contactConfig = {
 };
 
 const socialprofils = {
-    github: "https://github.com",
+    github: "https://github.com/",
     facebook: "https://facebook.com",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/selva-bharathi-s-kit-308588269/",
     twitter: "https://twitter.com",
 };
 export {
